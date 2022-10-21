@@ -37,8 +37,9 @@ public class sensor_cubev1 : MonoBehaviour
         Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward * distance;
 
         Vector3 topCenter = bottomCenter + Vector3.up * height;
-        Vector3 topLeft = bottomLeft + Vector3.up * height;
         Vector3 topRight = bottomRight + Vector3.up * height;
+        Vector3 topLeft = bottomLeft + Vector3.up * height;
+        
 
         int i = 0;
         
@@ -94,10 +95,11 @@ public class sensor_cubev1 : MonoBehaviour
     private void OnValidate() {
         mesh = CreateNewMesh();
     }
-    private void DrawDis() {
+    private void OnDrawGizmos() {
         if (mesh) {
             Gizmos.color = meshColor;
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation);
         }
+
     }
 }
